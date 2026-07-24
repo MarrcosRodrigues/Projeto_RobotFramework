@@ -4,11 +4,18 @@ library    SeleniumLibrary
 *** Variables ***
 ${URL}    https://automationexercise.com/
 ${CATEGORIA}    //div[@id="accordian"]/../h2
-${LOGIN_CADASTRO}    //a[@href='/login']
 
+#Páginas
+${LOGIN_CADASTRO}    //a[@href='/login']
+${PAGINA_PRODUTOS}    //a[@href='/products']
+
+#BOTÕES
 ${BOTAO_HOME}    //a[@href='/']
 ${BOTAO_DELETE}    //a[@href='/delete_account']
+
+#MENSAGENS
 ${MENSAGEM_DELETE}    //h2[@data-qa='account-deleted']
+${MENSAGEM_ADICIONADO}    //h4[@class='modal-title w-100']
 
 #Iframe
 ${IFRAME}    //iframe[@id='aswift_2']
@@ -33,13 +40,35 @@ Clicar em Delete Account
     [Documentation]    Clica no botão de deletar conta
     [Arguments]    ${MENSAGEM_ESPERADA_DELETE}
     Click Element    ${BOTAO_HOME}
+
+    Fechar popup
+    
+    Click Element    ${BOTAO_DELETE}
+    
+    Element Text Should Be    ${MENSAGEM_DELETE}     ${MENSAGEM_ESPERADA_DELETE}
+
+Acessar página de produtos
+    [Documentation]    Acessa a página de produtos do site
+    Click Element    ${BOTAO_HOME}
+    
+    Fechar popup
+
+    Click Element    ${PAGINA_PRODUTOS}
+
+Fechar popup
+    [Documentation]    Fecha o popup do site
     ${IFRAME_PRESENT}=    Run Keyword And Return Status    Page Should Contain Element    ${IFRAME}
 
     IF    ${IFRAME_PRESENT} == True
         Select Frame    ${IFRAME}
         Click Element    ${FECHAR_POPUP}
         Unselect Frame
-        Click Element    ${BOTAO_DELETE}
     END
-    
-    Element Text Should Be    ${MENSAGEM_DELETE}     ${MENSAGEM_ESPERADA_DELETE}
+
+Adicionar produto ${PRODUTO} ao carrinho
+    Click Element    //div[@class='productinfo text-center']//p[contains(.,'${PRODUTO}')]/../a
+
+Verificar adição do produto ao carrinho
+    [Arguments]    ${MENSAGEM_ESPERADA}
+    Wait Until Element Is Visible    ${MENSAGEM_ADICIONADO}
+    Element Text Should Be    ${MENSAGEM_ADICIONADO}    ${MENSAGEM_ESPERADA}

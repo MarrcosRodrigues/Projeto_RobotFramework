@@ -12,12 +12,14 @@ Test Teardown    Fechar navegador
 
 *** Test Cases ***
 Realizar login com sucesso
+    [Tags]    Autenticação
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro    
     LoginPage.Realizar login    ${users.valid_user.email}    ${users.valid_user.password}
     LoginPage.Verificar login realizado com sucesso    ${users.valid_user.name}
 
 Realizar login com usuario invalido
+    [Tags]    Autenticação
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro 
     LoginPage.Verificar que estou na pagina de login e cadastro   
@@ -25,6 +27,7 @@ Realizar login com usuario invalido
     LoginPage.Verificar mensagem de usuario/senha invalida    Your email or password is incorrect!
     
 Realizar logout
+    [Tags]    Autenticação
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro  
     LoginPage.Verificar que estou na pagina de login e cadastro 
@@ -33,6 +36,7 @@ Realizar logout
     HomePage.Clicar em logout
 
 Realizar cadastro de um usuario
+    [Tags]    Cadastro
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro
     LoginPage.Verificar que estou na pagina de login e cadastro
@@ -42,12 +46,14 @@ Realizar cadastro de um usuario
     LoginPage.Verificar cadastro realizado com sucesso    ACCOUNT CREATED!
 
 Realizar cadastro de um usuario com email ja existente
+    [Tags]    Cadastro
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro
     LoginPage.Preencher campos de cadastro    ${users.valid_user.name}    ${users.valid_user.email}
     LoginPage.Verificar mensagem de email já cadastrado    Email Address already exist!
 
 Realizar cadastro de um usuario e deleta-lo
+    [Tags]    Cadastro    Autenticação    Deletar
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro
     LoginPage.Preencher campos de cadastro    ${FAKE_NOME}    ${FAKE_EMAIL}
