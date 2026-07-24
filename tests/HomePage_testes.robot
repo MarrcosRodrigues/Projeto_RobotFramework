@@ -1,6 +1,6 @@
 *** Settings ***
-resource    ../resources/base/base.robot
-resource    ../resources/keywords/HomePage.robot
+resource    ../resources/base/base.resource
+resource    ../resources/keywords/HomePage.resource
 Test Setup    Abrir navegador
 Test Teardown    Fechar navegador
 

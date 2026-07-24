@@ -1,7 +1,7 @@
 *** Settings ***
-resource    ../resources/base/base.robot
-resource    ../resources/keywords/LoginPage.robot
-resource    ../resources/keywords/HomePage.robot
+resource    ../resources/base/base.resource
+resource    ../resources/keywords/LoginPage.resource
+resource    ../resources/keywords/HomePage.resource
 
 Library     FakerLibrary    locale=pt_BR
 
