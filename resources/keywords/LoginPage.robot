@@ -1,7 +1,9 @@
 *** Settings ***   
 Library    SeleniumLibrary
-variables   ../resources/data/env_config.yaml
+Library     FakerLibrary    locale=pt_BR
 
+variables   ../resources/data/env_config.yaml
+variables   ../resources/data/fakerInfo.py
 
 *** Variables ***
 #LOGIN
@@ -81,23 +83,23 @@ Preencher campos de cadastro
 
 Preencher formulario de cadastro
     [Documentation]    Preenche o formulário de cadastro com os dados do usuário
-    [Arguments]    ${Titulo}    ${password}    ${dia_nascimento}    ${mes_nascimento}    ${ano_nascimento}    ${primeiro_nome}    
-    ...    ${ultimo_nome}    ${empresa}    ${endereco1}    ${endereco2}    ${pais}    ${estado}    ${cidade}    ${cep}    ${celular}
-    Click Element    //input[@value='${Titulo}']
-    Input Text    ${CAMPO_SENHA_CADASTRO}    ${password}
-    Select From List By Value    ${CAMPO_DIA_NASCIMENTO}    ${dia_nascimento}
-    Select From List By Value    ${CAMPO_MES_NASCIMENTO}    ${mes_nascimento}
-    Select From List By Value    ${CAMPO_ANO_NASCIMENTO}    ${ano_nascimento}
-    Input Text    ${CAMPO_PRIMEIRO_NOME}    ${primeiro_nome}
-    Input Text    ${CAMPO_ULTIMO_NOME}    ${ultimo_nome}
-    Input Text    ${CAMPO_EMPRESA}    ${empresa}
-    Input Text    ${CAMPO_ENDERECO1}    ${endereco1}
-    Input Text    ${CAMPO_ENDERECO2}    ${endereco2}
-    Select From List By Value    ${CAMPO_PAIS}    ${pais}
-    Input Text    ${CAMPO_ESTADO}    ${estado}
-    Input Text    ${CAMPO_CIDADE}    ${cidade}
-    Input Text    ${CAMPO_CEP}    ${cep}
-    Input Text    ${CAMPO_CELULAR}    ${celular}
+    # [Arguments]    ${Titulo}    ${password}    ${dia_nascimento}    ${mes_nascimento}    ${ano_nascimento}    ${primeiro_nome}    
+    # ...    ${ultimo_nome}    ${empresa}    ${endereco1}    ${endereco2}    ${pais}    ${estado}    ${cidade}    ${cep}    ${celular}
+    Click Element    //input[@value='${TITULO}']
+    Input Text    ${CAMPO_SENHA_CADASTRO}    ${FAKE_SENHA}
+    Select From List By Value    ${CAMPO_DIA_NASCIMENTO}    ${FAKE_DIA_NASCIMENTO}
+    Select From List By Value    ${CAMPO_MES_NASCIMENTO}    ${FAKE_MES_NASCIMENTO}
+    Select From List By Value    ${CAMPO_ANO_NASCIMENTO}    ${FAKE_ANO_NASCIMENTO}
+    Input Text    ${CAMPO_PRIMEIRO_NOME}    ${FAKE_PRIMEIRO_NOME}
+    Input Text    ${CAMPO_ULTIMO_NOME}    ${FAKE_ULTIMO_NOME}
+    Input Text    ${CAMPO_EMPRESA}    ${FAKE_EMPRESA}
+    Input Text    ${CAMPO_ENDERECO1}    ${FAKE_ENDERECO1}
+    Input Text    ${CAMPO_ENDERECO2}    ${FAKE_ENDERECO2}
+    Select From List By Value    ${CAMPO_PAIS}    ${FAKE_PAIS}
+    Input Text    ${CAMPO_ESTADO}    ${FAKE_ESTADO}
+    Input Text    ${CAMPO_CIDADE}    ${FAKE_CIDADE}
+    Input Text    ${CAMPO_CEP}    ${FAKE_CEP}
+    Input Text    ${CAMPO_CELULAR}    ${FAKE_CELULAR}
 
 Clicar no botão de criar conta
     [Documentation]    Clica no botão de criar conta após preencher o formulário de cadastro

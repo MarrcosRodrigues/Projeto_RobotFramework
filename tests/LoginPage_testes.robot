@@ -37,13 +37,7 @@ Realizar cadastro de um usuario
     HomePage.Acessar pagina de login e cadastro
     LoginPage.Verificar que estou na pagina de login e cadastro
     LoginPage.Preencher campos de cadastro    ${FAKE_NOME}    ${FAKE_EMAIL}
-    LoginPage.Preencher formulario de cadastro    
-    ...    ${TITULO}    ${FAKE_SENHA}    
-    ...    ${FAKE_DIA_NASCIMENTO}    ${FAKE_MES_NASCIMENTO}    ${FAKE_ANO_NASCIMENTO}    
-    ...    ${FAKE_PRIMEIRO_NOME}    ${FAKE_ULTIMO_NOME}    
-    ...    ${FAKE_EMPRESA}    ${FAKE_ENDERECO1}    ${FAKE_ENDERECO2}    
-    ...    ${FAKE_PAIS}    ${FAKE_ESTADO}    ${FAKE_CIDADE}    ${FAKE_CEP}    
-    ...    ${FAKE_CELULAR}
+    LoginPage.Preencher formulario de cadastro
     LoginPage.Clicar no botão de criar conta
     LoginPage.Verificar cadastro realizado com sucesso    ACCOUNT CREATED!
 
@@ -57,13 +51,7 @@ Realizar cadastro de um usuario e deleta-lo
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro
     LoginPage.Preencher campos de cadastro    ${FAKE_NOME}    ${FAKE_EMAIL}
-    LoginPage.Preencher formulario de cadastro    
-    ...    ${TITULO}    ${FAKE_SENHA}    
-    ...    ${FAKE_DIA_NASCIMENTO}    ${FAKE_MES_NASCIMENTO}    ${FAKE_ANO_NASCIMENTO}    
-    ...    ${FAKE_PRIMEIRO_NOME}    ${FAKE_ULTIMO_NOME}    
-    ...    ${FAKE_EMPRESA}    ${FAKE_ENDERECO1}    ${FAKE_ENDERECO2}    
-    ...    ${FAKE_PAIS}    ${FAKE_ESTADO}    ${FAKE_CIDADE}    ${FAKE_CEP}    
-    ...    ${FAKE_CELULAR}
+    LoginPage.Preencher formulario de cadastro
     LoginPage.Clicar no botão de criar conta
     LoginPage.Verificar cadastro realizado com sucesso    ACCOUNT CREATED!
     HomePage.Acessar pagina de login e cadastro
