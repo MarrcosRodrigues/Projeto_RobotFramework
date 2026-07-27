@@ -6,12 +6,14 @@ ${URL}    https://automationexercise.com/
 ${CATEGORIA}    //div[@id="accordian"]/../h2
 
 #Páginas
-${LOGIN_CADASTRO}    //a[@href='/login']
+${LOGIN_CADASTRO_MODAL}    //a[@href='/login']
 ${PAGINA_PRODUTOS}    //a[@href='/products']
 
 #BOTÕES
 ${BOTAO_HOME}    //a[@href='/']
 ${BOTAO_DELETE}    //a[@href='/delete_account']
+${VER_CARRINHO}    //p//a[@href='/view_cart']
+${BOTAO_LOGOUT}    //a[@href='/logout']
 
 #MENSAGENS
 ${MENSAGEM_DELETE}    //h2[@data-qa='account-deleted']
@@ -29,12 +31,12 @@ Acessar pagina inicial
     
 Acessar pagina de login e cadastro
     [Documentation]    Acessa a página de login e cadastro do site
-    Click Element    ${LOGIN_CADASTRO}
+    Click Element    ${LOGIN_CADASTRO_MODAL}
 
 Clicar em logout
     [Documentation]    Clica no botão de logout
-    Click Element    //a[@href='/logout']
-    Element Text Should Be    ${LOGIN_CADASTRO}     Signup / Login
+    Click Element    ${BOTAO_LOGOUT}
+    Element Text Should Be    ${LOGIN_CADASTRO_MODAL}     Signup / Login
 
 Clicar em Delete Account
     [Documentation]    Clica no botão de deletar conta
@@ -72,3 +74,6 @@ Verificar adição do produto ao carrinho
     [Arguments]    ${MENSAGEM_ESPERADA}
     Wait Until Element Is Visible    ${MENSAGEM_ADICIONADO}
     Element Text Should Be    ${MENSAGEM_ADICIONADO}    ${MENSAGEM_ESPERADA}
+
+Ver carrinho
+    Click Element    ${VER_CARRINHO}

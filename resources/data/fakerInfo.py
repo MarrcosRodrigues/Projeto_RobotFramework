@@ -23,4 +23,6 @@ def get_variables():
         "FAKE_CIDADE": fake_br.city(),
         "FAKE_CEP": fake_br.postcode(),
         "FAKE_CELULAR": fake_br.phone_number(),
+        "FAKE_NUM_CARTAO": fake_br.credit_card_number(),
+        "FAKE_CVC": fake_br.credit_card_security_code(),
     }

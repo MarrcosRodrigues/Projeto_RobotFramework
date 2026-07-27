@@ -3,6 +3,6 @@
 # ==============================================================================
 users:
   valid_user:
-    name: "testeJM1"
-    email: "testejm1@teste.com"
+    name: "testerobot"
+    email: "testerobot@teste.com"
     password: "Teste123"
