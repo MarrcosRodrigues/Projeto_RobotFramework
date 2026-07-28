@@ -1,6 +1,6 @@
 *** Settings ***   
 Library    SeleniumLibrary
-resource    ../resources/keywords/HomePage.resource
+resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
 
 variables   ../resources/data/fakerInfo.py
 

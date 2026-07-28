@@ -1,8 +1,8 @@
 *** Settings ***
 resource    ../resources/base/base.resource
-resource    ../resources/keywords/HomePage.resource
-resource    ../resources/keywords/CheckoutPage.resource
-resource    ../resources/keywords/LoginPage.resource
+resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
+resource    ../resources/keywords/KeywordsFunctional/CheckoutPage.resource
+resource    ../resources/keywords/KeywordsFunctional/LoginPage.resource
 Test Setup    Abrir navegador
 Test Teardown    Fechar navegador
 
