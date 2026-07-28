@@ -1,7 +1,7 @@
 *** Settings ***
 resource    ../resources/base/base.resource
-resource    ../resources/keywords/LoginPage.resource
-resource    ../resources/keywords/HomePage.resource
+resource    ../resources/keywords/KeywordsFunctional/LoginPage.resource
+resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
 
 Library     FakerLibrary    locale=pt_BR
 

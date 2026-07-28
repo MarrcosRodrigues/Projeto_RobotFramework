@@ -1,8 +1,8 @@
 *** Settings ***
 resource    ../resources/base/base.resource
-resource    ../resources/keywords/LoginPage.resource
-resource    ../resources/keywords/HomePage.resource
-resource    ../resources/keywords/ProdutosPage.resource
+resource    ../resources/keywords/KeywordsFunctional/LoginPage.resource
+resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
+resource    ../resources/keywords/KeywordsFunctional/ProdutosPage.resource
 
 
 Test Setup    Abrir navegador

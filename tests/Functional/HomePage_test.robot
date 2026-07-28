@@ -1,6 +1,6 @@
 *** Settings ***
 resource    ../resources/base/base.resource
-resource    ../resources/keywords/HomePage.resource
+resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
 Test Setup    Abrir navegador
 Test Teardown    Fechar navegador
 
