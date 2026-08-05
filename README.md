@@ -18,12 +18,14 @@ A estrutura de diretórios foi pensada para manter o projeto organizado e reflet
 
 ```text
 Projeto_RobotFramework/
-├── tests/              # Arquivos de teste (.robot) contendo as suítes de teste de estudo.
 ├── resources/          # Keywords customizadas, variáveis e mapeamento de elementos.
-│   ├── elements/       # Locators (XPath, CSS, IDs) das páginas mapeadas.
-│   ├── keywords/       # Ações e instruções de alto e baixo nível.
+│   ├── base/           # Configuração base para inicialização do ambiente de teste.
+│   ├── keywords/       # Ações, instruções de alto e baixo nível e Locators (XPath, CSS, IDs) das páginas mapeadas.
 │   └── data/           # Massas de dados e configurações de ambiente para testes.
 ├── results/            # Relatórios e logs gerados pelas execuções (ignorados no git).
+├── tests/              # Pasta principal dos teste (.robot)
+│   ├── API/            # Pasta dos arquivos de teste para API (.robot) contendo as suítes de teste de estudo.
+│   ├── Functional/     # Pasta dos arquivos de teste Funcionnais (.robot) contendo as suítes de teste de estudo.
 ├── .gitignore          # Arquivos e pastas a serem ignorados pelo controle de versão.
 └── README.md           # Documentação principal do projeto.
 ```
@@ -34,7 +36,9 @@ O núcleo de estudo deste projeto gira em torno das seguintes tecnologias:
 
 - **[Python](https://www.python.org/):** Linguagem base do ecossistema Robot.
 - **[Robot Framework](https://robotframework.org/):** Framework genérico e *keyword-driven* utilizado como foco principal de aprendizado.
-- **[SeleniumLibrary](https://robotframework.org/SeleniumLibrary/):** (Opcional/Comum) Para interação e testes de interface de usuário (Web).
+- **[SeleniumLibrary](https://robotframework.org/SeleniumLibrary/):** Utilizada para interação e testes de interface de usuário (Web).
+- **[RequestsLibrary](https://github.com/MarketSquare/robotframework-requests):** Utilizada para a automação e validação de testes de API (Back-end).
+- **[FakerLibrary](https://guykisel.github.io/robotframework-faker/):** Utilizada para a geração de massa de dados aleatórios e fictícios (como nomes, e-mails, senhas e endereços), tornando os testes dinâmicos e independentes de dados fixos.
 
 ## ⚙️ Pré-requisitos e Instalação
 
@@ -85,6 +89,3 @@ Os resultados detalhados (`log.html`, `report.html` e `output.xml`) serão criad
 **Marcos Rodrigues**  
 QA Analyst | Software Tester
 [GitHub: MarrcosRodrigues](https://github.com/MarrcosRodrigues)
-
----
-*Este repositório está em constante evolução conforme o avanço dos estudos em engenharia de qualidade e automação.*
