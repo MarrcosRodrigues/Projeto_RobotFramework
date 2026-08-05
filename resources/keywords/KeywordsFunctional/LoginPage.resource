@@ -1,6 +1,5 @@
 *** Settings ***   
 Library    SeleniumLibrary
-Library     FakerLibrary    locale=pt_BR
 
 variables   ../resources/data/env_config.yaml
 variables   ../resources/data/fakerInfo.py
