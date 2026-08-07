@@ -63,7 +63,7 @@ Acessar página de produtos
 
 Fechar popup
     [Documentation]    Fecha o popup do site
-    ${IFRAME_PRESENT}=    Run Keyword And Return Status    Page Should Contain Element   ${IFRAME}
+    ${IFRAME_PRESENT}=    Run Keyword And Return Status    Element Should Be Visible    ${IFRAME}
     
     IF    ${IFRAME_PRESENT}
         Select Frame    ${IFRAME}

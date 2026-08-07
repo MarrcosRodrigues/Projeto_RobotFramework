@@ -5,7 +5,7 @@ resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
 
 Library     FakerLibrary    locale=pt_BR
 
-variables   ../resources/data/fakerInfo.py
+Library   ../resources/data/fakerInfo.py
 
 Test Setup    Abrir navegador
 Test Teardown    Fechar navegador
@@ -20,10 +20,11 @@ Realizar login com sucesso
 
 Realizar login com usuario invalido
     [Tags]    Autenticação
+    ${dados}    Gerar Dados Aleatorios
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro 
     LoginPage.Verificar que estou na pagina de login e cadastro   
-    LoginPage.Realizar login   ${FAKE_EMAIL}    ${FAKE_SENHA}
+    LoginPage.Realizar login   ${dados}[FAKE_EMAIL]    ${dados}[FAKE_SENHA]
     LoginPage.Verificar mensagem de usuario/senha invalida    Your email or password is incorrect!
     
 Realizar logout
@@ -37,10 +38,12 @@ Realizar logout
 
 Realizar cadastro de um usuario
     [Tags]    Cadastro
+    ${dados}    Gerar Dados Aleatorios
+
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro
     LoginPage.Verificar que estou na pagina de login e cadastro
-    LoginPage.Preencher campos de cadastro    ${FAKE_NOME}    ${FAKE_EMAIL}
+    LoginPage.Preencher campos de cadastro    ${dados}[FAKE_NOME]    ${dados}[FAKE_EMAIL]
     LoginPage.Preencher formulario de cadastro
     LoginPage.Clicar no botão de criar conta
     LoginPage.Verificar cadastro realizado com sucesso    ACCOUNT CREATED!
@@ -54,12 +57,14 @@ Realizar cadastro de um usuario com email ja existente
 
 Realizar cadastro de um usuario e deleta-lo
     [Tags]    Cadastro    Autenticação    Deletar
+    ${dados}    Gerar Dados Aleatorios
+    
     HomePage.Acessar pagina inicial
     HomePage.Acessar pagina de login e cadastro
-    LoginPage.Preencher campos de cadastro    ${FAKE_NOME}    ${FAKE_EMAIL}
+    LoginPage.Preencher campos de cadastro    ${dados}[FAKE_NOME]    ${dados}[FAKE_EMAIL]
     LoginPage.Preencher formulario de cadastro
     LoginPage.Clicar no botão de criar conta
     LoginPage.Verificar cadastro realizado com sucesso    ACCOUNT CREATED!
     HomePage.Acessar pagina de login e cadastro
-    LoginPage.Verificar login realizado com sucesso    ${FAKE_NOME}
+    LoginPage.Verificar login realizado com sucesso    ${dados}[FAKE_NOME]
     HomePage.Clicar em Delete Account    ACCOUNT DELETED!

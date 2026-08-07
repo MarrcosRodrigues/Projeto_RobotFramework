@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 resource    ../resources/keywords/KeywordsFunctional/HomePage.resource
 
-variables   ../resources/data/fakerInfo.py
+Library   ../resources/data/fakerInfo.py
 
 *** Variables ***
 
@@ -41,11 +41,13 @@ Clicar em Place Order
 
 Preencher dados do cartão
     [Documentation]    Preenche os dados do cartão na página de checkout
-    Input Text    ${CAMPO_NOME_CARTAO}    ${FAKE_NOME}
-    Input Text    ${CAMPO_NUM_CARTAO}    ${FAKE_NUM_CARTAO}
-    Input Text    ${CAMPO_CVC}    ${FAKE_CVC}
-    Input Text    ${CAMPO_DATA_EXP_MES}    ${FAKE_MES_NASCIMENTO}
-    Input Text    ${CAMPO_DATA_EXP_ANO}    ${FAKE_ANO_NASCIMENTO}
+    ${dados}    Gerar Dados Aleatorios
+
+    Input Text    ${CAMPO_NOME_CARTAO}    ${dados}[FAKE_NOME]
+    Input Text    ${CAMPO_NUM_CARTAO}    ${dados}[FAKE_NUM_CARTAO]
+    Input Text    ${CAMPO_CVC}    ${dados}[FAKE_CVC]
+    Input Text    ${CAMPO_DATA_EXP_MES}    ${dados}[FAKE_MES_NASCIMENTO]
+    Input Text    ${CAMPO_DATA_EXP_ANO}    ${dados}[FAKE_ANO_NASCIMENTO]
 
 Clicar em pagar e confirmar
     [Documentation]    Clica no botão pagar e confirmar na página de checkout

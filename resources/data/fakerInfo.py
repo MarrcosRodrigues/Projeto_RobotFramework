@@ -3,7 +3,7 @@ from faker import Faker
 fake = Faker()
 fake_br = Faker('pt_BR')
 
-def get_variables():
+def gerar_dados_aleatorios():
     # Retorna um dicionário onde as chaves serão as variáveis no Robot
     nome_email = fake_br.name()
     numero_aleatorio = fake_br.random_int(min=0, max=999999)

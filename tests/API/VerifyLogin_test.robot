@@ -2,7 +2,7 @@
 Resource    ../resources/keywords/KeywordsAPI/VerifyLogin.resource
 
 Variables    ../../resources/data/env_config.yaml
-Variables    ../../resources/data/fakerInfo.py
+Library    ../../resources/data/fakerInfo.py
 
 *** Test Cases ***
 Verificar login com usuario valido
@@ -15,5 +15,6 @@ DELETE para api de verificação de login
     Enviar DELETE para a verificação de login
 
 Verificar login com usuario invalido
-    Verificar login    ${FAKE_EMAIL}    ${FAKE_SENHA}    User not found!    404
+    ${dados}    Gerar Dados Aleatorios
+    Verificar login    ${dados}[FAKE_EMAIL]    ${dados}[FAKE_SENHA]    User not found!    404
     
