@@ -2,10 +2,13 @@
 library    SeleniumLibrary
 
 *** Variables ***
+#URL BASE
 ${URL}    https://automationexercise.com/
+
+#TEXTO
 ${CATEGORIA}    //div[@id="accordian"]/../h2
 
-#Páginas
+#PÁGINAS
 ${LOGIN_CADASTRO_MODAL}    //a[@href='/login']
 ${PAGINA_PRODUTOS}    //a[@href='/products']
 
@@ -19,11 +22,12 @@ ${BOTAO_LOGOUT}    //a[@href='/logout']
 ${MENSAGEM_DELETE}    //h2[@data-qa='account-deleted']
 ${MENSAGEM_ADICIONADO}    //h4[@class='modal-title w-100']
 
-#Iframe
+#IFRAME
 ${IFRAME}    //iframe[@id='aswift_2']
 ${FECHAR_POPUP}    id=dismiss-button-element
 
 *** Keywords ***
+#Ações
 Acessar pagina inicial
     [Documentation]    Acessa a página inicial do site
     Go To    ${URL}
@@ -59,21 +63,27 @@ Acessar página de produtos
 
 Fechar popup
     [Documentation]    Fecha o popup do site
-    ${IFRAME_PRESENT}=    Run Keyword And Return Status    Page Should Contain Element    ${IFRAME}
-
-    IF    ${IFRAME_PRESENT} == True
+    ${IFRAME_PRESENT}=    Run Keyword And Return Status    Page Should Contain Element   ${IFRAME}
+    
+    IF    ${IFRAME_PRESENT}
         Select Frame    ${IFRAME}
         Click Element    ${FECHAR_POPUP}
         Unselect Frame
     END
 
 Adicionar produto ${PRODUTO} ao carrinho
+    [Documentation]    Adiciona o produto especificado ao carrinho
+
+    Scroll Element Into View    //div[@class='productinfo text-center']//p[contains(.,'Rose Pink Embroidered Maxi Dress')]
     Click Element    //div[@class='productinfo text-center']//p[contains(.,'${PRODUTO}')]/../a
 
+Ver carrinho
+    [Documentation]    Clica no botão de ver carrinho
+    Click Element    ${VER_CARRINHO}
+
+#Asserção
 Verificar adição do produto ao carrinho
+    [Documentation]    Verifica se o produto foi adicionado ao carrinho
     [Arguments]    ${MENSAGEM_ESPERADA}
     Wait Until Element Is Visible    ${MENSAGEM_ADICIONADO}
     Element Text Should Be    ${MENSAGEM_ADICIONADO}    ${MENSAGEM_ESPERADA}
-
-Ver carrinho
-    Click Element    ${VER_CARRINHO}

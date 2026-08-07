@@ -1,14 +1,11 @@
 *** Settings ***
 Library    RequestsLibrary
-
+Resource    ../resources/base/base.resource
 Variables    ../../data/fakerInfo.py
 
 *** Keywords ***
-Criar Sessão no AutomationPractice
-    ${headers}   create Dictionary  accept=application/json  Content-Type=application/x-www-form-urlencoded
-    Create Session    alias=AutomationPractice    url=https://automationexercise.com   headers=${headers}
-
 Realizar criação de usuario
+    [Documentation]    Realiza a criação do usuário no site Automation Practice através de uma requisição POST
     [Arguments]    ${message}    ${status}
 
     Criar Sessão no AutomationPractice

@@ -11,7 +11,7 @@ ${CAMPO_SENHA}    //input[@data-qa='login-password']
 ${BOTAO_LOGIN}    //button[@data-qa='login-button']
 ${TEXTO_LOGADO}    //a//b
 
-#Mensagem login
+#MENSAGEM LOGIN
 ${TEXT_LOGIN}    //div[@class='login-form']//h2
 
 #ALERTA
@@ -82,8 +82,6 @@ Preencher campos de cadastro
 
 Preencher formulario de cadastro
     [Documentation]    Preenche o formulário de cadastro com os dados do usuário
-    # [Arguments]    ${Titulo}    ${password}    ${dia_nascimento}    ${mes_nascimento}    ${ano_nascimento}    ${primeiro_nome}    
-    # ...    ${ultimo_nome}    ${empresa}    ${endereco1}    ${endereco2}    ${pais}    ${estado}    ${cidade}    ${cep}    ${celular}
     Click Element    //input[@value='${TITULO}']
     Input Text    ${CAMPO_SENHA_CADASTRO}    ${FAKE_SENHA}
     Select From List By Value    ${CAMPO_DIA_NASCIMENTO}    ${FAKE_DIA_NASCIMENTO}

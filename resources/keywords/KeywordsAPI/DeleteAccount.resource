@@ -1,14 +1,12 @@
 *** Settings ***
 library    RequestsLibrary
 
+Resource    ../resources/base/base.resource
 resource    ../resources/keywords/KeywordsAPI/CreateAccount.resource
 
 *** Keywords ***
-Criar Sessão no AutomationPractice
-    ${headers}    Create Dictionary    accept=application/json  Content-Type=application/x-www-form-urlencoded
-    Create Session    alias=AutomationPractice    url=https://automationexercise.com   headers=${headers}
-
 Realizar deleção de usuario
+    [Documentation]    Realiza a deleção do usuário no site Automation Practice através de uma requisição DELETE
     [Arguments]    ${message}    ${status}
     Criar Sessão no AutomationPractice
     

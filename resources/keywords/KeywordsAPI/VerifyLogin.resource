@@ -1,15 +1,11 @@
 *** Settings ***
 Library    RequestsLibrary
 
-*** Variables ***
-${URL}    https://automationexercise.com 
+Resource    ../resources/base/base.resource
 
 *** Keywords ***
-Criar Sessão no AutomationPractice
-    ${headers}  Create Dictionary  accept=application/json  Content-Type=application/x-www-form-urlencoded
-    Create Session    alias=AutomationPractice    url=${URL}    headers=${headers}
-
 Verificar login
+    [Documentation]    Verifica o login do usuário no site Automation Practice através de uma requisição POST
     [Arguments]    ${email}    ${senha}    ${message}    ${status}
     Criar Sessão no AutomationPractice
 
@@ -23,6 +19,7 @@ Verificar login
     Log    ${response.json()}
 
 Enviar DELETE para a verificação de login
+    [Documentation]    Envia uma requisição DELETE para a verificação de login no site Automation Practice
     Criar Sessão no AutomationPractice
 
     ${response}    DELETE On Session   alias=AutomationPractice    url=/api/verifyLogin    expected_status=200

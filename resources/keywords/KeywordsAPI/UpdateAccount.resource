@@ -1,14 +1,12 @@
 *** Settings ***
 Library    RequestsLibrary
 
+Resource    ../resources/base/base.resource
 Resource    ../resources/keywords/KeywordsAPI/CreateAccount.resource
 
 *** Keywords ***
-Criar Sessão no AutomationPractice
-    ${headers}    Create Dictionary    accept=application/json  Content-Type=application/x-www-form-urlencoded
-    Create Session    alias=AutomationPractice    url=https://automationexercise.com   headers=${headers}
-
 Realizar atualização do usuario
+    [Documentation]    Realiza a atualização do usuário no site Automation Practice através de uma requisição PUT
     [Arguments]    ${message}    ${status}
     Criar Sessão no AutomationPractice
     

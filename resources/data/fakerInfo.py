@@ -5,10 +5,15 @@ fake_br = Faker('pt_BR')
 
 def get_variables():
     # Retorna um dicionário onde as chaves serão as variáveis no Robot
+    nome_email = fake_br.name()
+    numero_aleatorio = fake_br.random_int(min=0, max=999999)
+    dominio_email = fake_br.free_email_domain()
+    email_aleatorio = f"{nome_email.lower().replace(' ', '').replace('í', 'i')}{numero_aleatorio}@{dominio_email}"
+
     return {
         "TITULO": fake_br.random_element(elements=("Mr", "Mrs")),
         "FAKE_NOME": fake_br.name(),
-        "FAKE_EMAIL": fake_br.email(),
+        "FAKE_EMAIL": email_aleatorio,
         "FAKE_SENHA": fake_br.password(),
         "FAKE_DIA_NASCIMENTO": str(int(fake_br.day_of_month())),
         "FAKE_MES_NASCIMENTO": str(int(fake_br.month())),

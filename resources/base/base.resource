@@ -1,8 +1,10 @@
 *** Settings ***
 library    SeleniumLibrary
+Library    RequestsLibrary
 
 *** Variables ***
 ${BROWSER}      edge
+${URL}          https://automationexercise.com
 
 *** Keywords ***
 Abrir navegador
@@ -11,3 +13,9 @@ Abrir navegador
 
 Fechar navegador  
     Close Browser
+
+*** Keywords ***
+Criar Sessão no AutomationPractice
+    [Documentation]    Cria uma sessão no site Automation Practice para realizar requisições HTTP
+    ${headers}  Create Dictionary  accept=application/json  Content-Type=application/x-www-form-urlencoded
+    Create Session    alias=AutomationPractice    url=${URL}    headers=${headers}
