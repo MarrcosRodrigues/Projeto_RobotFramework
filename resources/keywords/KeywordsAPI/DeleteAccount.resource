@@ -4,6 +4,10 @@ library    RequestsLibrary
 Resource    ../resources/base/base.resource
 resource    ../resources/keywords/KeywordsAPI/CreateAccount.resource
 
+*** Variables ***
+${email_criado}    ${EMPTY}
+${senha_criada}    ${EMPTY}
+
 *** Keywords ***
 Realizar deleção de usuario
     [Documentation]    Realiza a deleção do usuário no site Automation Practice através de uma requisição DELETE
